@@ -1,3 +1,13 @@
+"""
+OCR Pipeline
+
+Features:
+- Extract text from images
+- Extract text from PDF files
+- Image preprocessing using OpenCV
+- OCR using Tesseract
+"""
+
 import cv2
 import pytesseract
 import fitz
