@@ -43,6 +43,22 @@ The current version uses a classical machine learning pipeline:
 5. Test prediction
 6. Accuracy evaluation
 
+## Feature Extraction
+
+The current model uses Histogram of Oriented Gradients (HOG) to convert
+handwritten character images into numerical feature vectors.
+
+The images are resized to **28 × 28 pixels** and normalized before HOG
+features are extracted.
+
+Current HOG configuration:
+
+- Orientations: 9
+- Pixels per cell: 4 × 4
+- Cells per block: 2 × 2
+- Block normalization: L2-Hys
+- Feature vector size: **1296**
+
 ## Current Baseline
 
 Using the current 36-image test set:
