@@ -67,6 +67,24 @@ Using the current 36-image test set:
 - Incorrect predictions: **9**
 - Test accuracy: **75.00%**
 
+## Model Training
+
+The current version uses a Support Vector Machine (SVM) classifier
+with an RBF kernel.
+
+The SVM is trained using the HOG feature vectors extracted from
+the cleaned handwriting dataset.
+
+Current training configuration:
+
+- Algorithm: SVM
+- Kernel: RBF
+- C: 5.0
+- Gamma: scale
+- Input: 1296-dimensional HOG feature vectors
+
+The current training run reports an accuracy of **63.9%**.
+
 ## Next Steps
 
 - Add lowercase test images
