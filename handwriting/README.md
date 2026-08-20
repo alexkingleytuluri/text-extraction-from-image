@@ -91,3 +91,5 @@ The current training run reports an accuracy of **63.9%**.
 - Evaluate all 62 character classes
 - Analyze commonly confused characters
 - Improve model performance
+- Add support for additional symbols
+- Explore more advanced approaches after completing the classical ML version
