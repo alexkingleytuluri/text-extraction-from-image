@@ -32,6 +32,19 @@ Total test images: **36**
 
 Lowercase test images are still being prepared.
 
+## Project Structure
+
+handwriting/
+├── data/             # Training images
+├── data_clean/       # Preprocessed training images
+├── test/             # Test images
+├── test_clean/       # Preprocessed test images
+├── preprocess.py     # Image preprocessing
+├── load_dataset.py   # Dataset loading and HOG extraction
+├── train_model.py    # SVM model training
+├── predict_test.py   # Test image prediction
+└── README.md         # Project documentation
+
 ## Current Approach
 
 The current version uses a classical machine learning pipeline:
