@@ -34,6 +34,7 @@ Lowercase test images are still being prepared.
 
 ## Project Structure
 
+
 handwriting/
 ├── data/             # Training images
 ├── data_clean/       # Preprocessed training images
@@ -79,6 +80,26 @@ Using the current 36-image test set:
 - Correct predictions: **27**
 - Incorrect predictions: **9**
 - Test accuracy: **75.00%**
+
+## Prediction Results
+
+The current model correctly recognizes most uppercase letters, while
+some handwritten digits and visually similar characters are misclassified.
+
+Current incorrect predictions:
+
+- 0 → C
+- 1 → F
+- 2 → 0
+- 4 → Q
+- 5 → T
+- 6 → 4
+- D → O
+- J → 2
+- P → R
+
+These results will be used later to identify commonly confused
+characters and improve the model.
 
 ## Model Training
 
