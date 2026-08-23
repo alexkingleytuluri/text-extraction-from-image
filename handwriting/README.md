@@ -119,6 +119,18 @@ Current training configuration:
 
 The current training run reports an accuracy of **63.9%**.
 
+## Target Character Set
+
+The long-term target for the current classical ML version is recognition of **62 characters**:
+
+- 10 digits: `0–9`
+- 26 uppercase letters: `A–Z`
+- 26 lowercase letters: `a–z`
+
+The training dataset currently contains all 62 character classes.
+
+The lowercase test set is still being prepared. Once it is ready, the complete 62-character test set will be used to evaluate the model.
+
 ## Next Steps
 
 - Add lowercase test images
