@@ -131,6 +131,14 @@ The training dataset currently contains all 62 character classes.
 
 The lowercase test set is still being prepared. Once it is ready, the complete 62-character test set will be used to evaluate the model.
 
+## Current Limitations
+
+- The lowercase test dataset is not yet available.
+- The current 75% test accuracy is based only on 36 test images.
+- Some visually similar characters are still being confused.
+- The current model is a baseline using HOG features and an SVM classifier.
+- Model improvements will be evaluated after the complete 62-character test set is available.
+
 ## Next Steps
 
 - Add lowercase test images
