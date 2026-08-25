@@ -28,6 +28,8 @@ for filename in files:
         continue
 
     true_label = os.path.splitext(filename)[0]
+    if true_label.startswith("s-"):
+        true_label = true_label[2:]
     path = os.path.join(test_folder, filename)
 
     gray = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
@@ -52,6 +54,8 @@ for filename in files:
     flat = features.reshape(1, -1)
 
     prediction = model.predict(flat)[0]
+    if str(prediction).startswith("s-"):
+        prediction = str(prediction)[2:]
 
     print(
         f"File: {filename} | "
