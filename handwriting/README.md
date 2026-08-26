@@ -75,11 +75,15 @@ Current HOG configuration:
 
 ## Current Baseline
 
-Using the current 36-image test set:
+Using the complete 62-character test set:
 
-- Correct predictions: **27**
-- Incorrect predictions: **9**
-- Test accuracy: **75.00%**
+- Total test samples: **62**
+- Correct predictions: **37**
+- Incorrect predictions: **25**
+- Test accuracy: **59.68%**
+
+This is the current baseline for the 62-character classification task.
+Future model improvements will be compared against this result.
 
 ## Prediction Results
 
