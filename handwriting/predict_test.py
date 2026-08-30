@@ -5,10 +5,12 @@ from load_dataset import load_dataset
 from sklearn.svm import SVC
 from skimage.feature import hog
 
-# Train on ALL data
+# 1. Train on ALL augmented data
+print("Training SVM model on augmented data...")
 X, y = load_dataset("data_clean")
 
-model = SVC(kernel="rbf", C=5.0, gamma="scale", probability=True)
+# Updated C=10 to match the tuned model, removed probability=True
+model = SVC(kernel="rbf", C=50.0, gamma=0.01)
 model.fit(X, y)
 
 test_folder = "test_clean"
@@ -30,6 +32,7 @@ for filename in files:
     true_label = os.path.splitext(filename)[0]
     if true_label.startswith("s-"):
         true_label = true_label[2:]
+        
     path = os.path.join(test_folder, filename)
 
     gray = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
