@@ -75,15 +75,22 @@ Current HOG configuration:
 
 ## Current Baseline
 
-Using the complete 62-character test set:
+The current HOG + SVM model was evaluated on a 62-character test set.
 
 - Total test samples: **62**
-- Correct predictions: **37**
-- Incorrect predictions: **25**
-- Test accuracy: **59.68%**
+- Correct predictions: **40**
+- Incorrect predictions: **22**
+- Test accuracy: **64.52%**
 
-This is the current baseline for the 62-character classification task.
-Future model improvements will be compared against this result.
+The current model uses data augmentation and tuned SVM
+hyperparameters.
+
+Best parameters found:
+
+- C: **50**
+- Gamma: **0.01**
+
+This result serves as the current baseline for future improvements.
 
 ## Prediction Results
 
