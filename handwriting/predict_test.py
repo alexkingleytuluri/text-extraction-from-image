@@ -25,6 +25,15 @@ files = sorted(
 correct = 0
 total = 0
 
+digit_correct = 0
+digit_total = 0
+
+uppercase_correct = 0
+uppercase_total = 0
+
+lowercase_correct = 0
+lowercase_total = 0
+
 for filename in files:
     if not filename.lower().endswith((".png", ".jpg", ".jpeg")):
         continue
@@ -71,6 +80,22 @@ for filename in files:
     if prediction == true_label:
         correct += 1
 
+# Track accuracy by character category
+    if true_label.isdigit():
+        digit_total += 1
+        if prediction == true_label:
+            digit_correct += 1
+
+    elif true_label.isupper():
+        uppercase_total += 1
+        if prediction == true_label:
+            uppercase_correct += 1
+
+    elif true_label.islower():
+        lowercase_total += 1
+        if prediction == true_label:
+            lowercase_correct += 1
+
 accuracy = (correct / total) * 100
 
 print("\n--- Evaluation Results ---")
@@ -78,3 +103,17 @@ print("Total test samples:", total)
 print("Correct predictions:", correct)
 print("Incorrect predictions:", total - correct)
 print(f"Test Accuracy: {accuracy:.2f}%")
+
+print("\n--- Category Accuracy ---")
+
+if digit_total > 0:
+    print(f"Digits: {digit_correct}/{digit_total} "
+          f"({digit_correct / digit_total * 100:.2f}%)")
+
+if uppercase_total > 0:
+    print(f"Uppercase: {uppercase_correct}/{uppercase_total} "
+          f"({uppercase_correct / uppercase_total * 100:.2f}%)")
+
+if lowercase_total > 0:
+    print(f"Lowercase: {lowercase_correct}/{lowercase_total} "
+          f"({lowercase_correct / lowercase_total * 100:.2f}%)")
