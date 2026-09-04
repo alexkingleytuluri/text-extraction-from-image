@@ -1,69 +1,122 @@
-# Handwriting Model Error Analysis
+# Handwriting OCR — Error Analysis
 
 ## Current Baseline
 
-The current HOG + SVM model was evaluated on 62 test images
-containing digits, uppercase letters, and lowercase letters.
+The current classical machine learning pipeline uses:
 
-- Total test samples: 62
-- Correct predictions: 37
-- Incorrect predictions: 25
-- Test accuracy: 59.68%
+- Image preprocessing with OpenCV
+- 28×28 normalized character images
+- HOG feature extraction
+- RBF-kernel SVM classifier
+- C = 50
+- Gamma = 0.01
 
-## Observed Confusions
+The fixed external test set contains 62 images covering:
 
-### Digits
+- 10 digits
+- 26 uppercase letters
+- 26 lowercase letters
 
-Some digits are confused with visually similar characters:
+The training dataset contains 620 images, with exactly 10 images for each of the 62 classes.
 
-- 0 → C
-- 1 → i
-- 2 → p
-- 4 → Q
-- 5 → T
-- 6 → 4
-- 8 → e
+## Dataset Balance
 
-### Uppercase Letters
+A dataset distribution check confirmed that all 62 classes contain exactly 10 training images.
 
-Some uppercase characters are confused with similar characters:
+Therefore, class imbalance is not currently considered a major cause of the classification errors.
 
-- D → O
-- J → 2
-- O → o
-- P → R
+## External Test Results
 
-### Lowercase Letters
+- Total test images: 62
+- Correct predictions: 40
+- Incorrect predictions: 22
+- Overall accuracy: **64.52%**
 
-Several lowercase characters are confused with other lowercase
-letters, digits, or uppercase letters:
+### Category Accuracy
 
-- a → u
-- c → e
-- e → B
-- f → r
-- g → 9
-- h → r
-- i → j
-- j → f
-- k → B
-- l → 1
-- s → 3
-- t → k
-- u → 4
-- v → Q
+| Category | Correct | Total | Accuracy |
+|---|---:|---:|---:|
+| Digits | 3 | 10 | 30.00% |
+| Uppercase | 24 | 26 | 92.31% |
+| Lowercase | 13 | 26 | 50.00% |
 
-## Observation
+The model performs strongly on uppercase characters but struggles significantly with digits and lowercase characters.
 
-The current baseline performs substantially better on uppercase
-characters than on lowercase characters.
+## Misclassified Characters
 
-The observed errors suggest that visually similar characters
-remain difficult for the current HOG + SVM approach.
+The current 22 errors are:
 
-## Next Step
+| Actual | Predicted |
+|---|---|
+| 0 | 3 |
+| 1 | l |
+| 2 | 9 |
+| 5 | T |
+| 6 | 4 |
+| 7 | P |
+| 8 | e |
+| J | 1 |
+| O | o |
+| a | u |
+| c | e |
+| e | R |
+| f | c |
+| g | 9 |
+| h | r |
+| j | f |
+| k | B |
+| l | 1 |
+| s | o |
+| t | k |
+| u | 4 |
+| v | 9 |
 
-Before modifying the model, the dataset and preprocessing pipeline
-should be reviewed to determine whether the errors are caused by
-image quality, character similarity, or limitations of the current
-features and classifier.
+## Observations
+
+No single confusion occurs repeatedly; each of the 22 incorrect predictions occurs once.
+
+The errors mainly involve visually similar characters across different classes, particularly:
+
+- Digits vs letters
+- Uppercase vs lowercase characters
+- Similar-shaped lowercase characters
+- Characters with similar stroke structures
+
+Examples include:
+
+- `1 → l`
+- `5 → T`
+- `6 → 4`
+- `8 → e`
+- `O → o`
+- `a → u`
+- `e → R`
+- `g → 9`
+- `k → B`
+- `l → 1`
+- `u → 4`
+- `v → 9`
+
+The error pattern suggests that the main limitation is character shape similarity rather than class imbalance.
+
+## Validation Methodology Note
+
+An earlier internal validation experiment reported 92.7% accuracy.
+
+However, that experiment augmented the complete dataset before performing the train-validation split. This can allow augmented versions of the same original image to appear in both training and validation sets, producing an overly optimistic validation score.
+
+Therefore, the **64.52% fixed external test result is currently the more reliable baseline**.
+
+Future experiments will split the original images first and apply augmentation only to the training portion.
+
+## Next Steps
+
+The next phase will use a clean validation methodology and systematically evaluate:
+
+1. Preprocessing variations
+2. HOG feature configurations
+3. SVM parameters
+4. Augmentation strategies
+5. Validation errors
+
+After selecting the best classical ML pipeline, the final model will be evaluated again on the untouched 62-image external test set.
