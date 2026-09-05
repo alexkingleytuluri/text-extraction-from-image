@@ -9,7 +9,7 @@ from skimage.feature import hog
 print("Training SVM model on augmented data...")
 X, y = load_dataset("data_clean")
 
-# Updated C=10 to match the tuned model, removed probability=True
+# Updated C=50 to match the tuned model, removed probability=True
 model = SVC(kernel="rbf", C=50.0, gamma=0.01)
 model.fit(X, y)
 
