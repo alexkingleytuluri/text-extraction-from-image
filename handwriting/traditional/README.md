@@ -73,7 +73,23 @@ Navigate to the Traditional OCR directory:
 cd handwriting\traditional
 ```
 
-### 1. Train the Model
+### 1. Install Dependencies
+
+Install the required Python packages using the included requirements file:
+
+```powershell
+pip install -r requirements.txt
+```
+
+The project requires:
+
+- NumPy
+- OpenCV
+- scikit-image
+- scikit-learn
+- joblib
+
+### 2. Train the Model
 
 ```powershell
 python train_model.py
@@ -87,7 +103,7 @@ handwriting_svm.joblib
 
 The model file is intentionally excluded from Git because of its size.
 
-### 2. Run Final Evaluation
+### 3. Run Final Evaluation
 
 ```powershell
 python final_evaluation.py
@@ -103,7 +119,7 @@ This evaluates the finalized model against the external test set and reports:
 - Lowercase accuracy
 - Individual prediction errors
 
-### 3. Predict an Individual Character
+### 4. Predict an Individual Character
 
 ```powershell
 python predict.py "test_clean\A.png"
@@ -119,7 +135,6 @@ Image      : test_clean\A.png
 Prediction : A
 ==================================================
 ```
-
 ---
 
 ## Dataset
