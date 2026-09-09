@@ -9,7 +9,8 @@ from skimage.feature import hog
 from preprocess import process_image
 
 
-MODEL_PATH = "handwriting_svm.joblib"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+MODEL_PATH = os.path.join(BASE_DIR, "handwriting_svm.joblib")
 
 
 def prepare_image(image):
