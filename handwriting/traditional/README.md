@@ -47,3 +47,7 @@ External Evaluation
      ↓
 Error Analysis
 > The prediction script can also be executed from the repository root using the full project-relative path.
+
+## Repository Status
+
+The Traditional Handwriting OCR pipeline has been finalized with its preprocessing, HOG feature extraction, SVM training, prediction, evaluation, and error-analysis components.
