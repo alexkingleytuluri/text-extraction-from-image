@@ -40,3 +40,6 @@ Thumbs.db
 *.log
 # Serialized ML models
 *.joblib
+
+# Hugging Face / Transformer model weights
+*.safetensors
