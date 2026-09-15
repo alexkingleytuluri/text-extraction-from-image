@@ -34,6 +34,22 @@ Detailed Traditional OCR documentation is available in:
 
 `handwriting/traditional/README.md`
 
+### Deep Learning OCR — In Progress 🚧
+
+The Deep Learning OCR phase is currently under development.
+
+Current work includes:
+
+- Zero-shot handwritten text recognition using TrOCR
+- Fine-tuning TrOCR on a custom handwritten dataset
+- Single-word prediction
+- Full-page handwritten text recognition
+- Prescription image testing
+- OCR preprocessing and segmentation experiments
+
+The fine-tuned model is kept locally and is not committed to the repository because of its large size.
+
+
 ## Project Roadmap
 
 ```text
