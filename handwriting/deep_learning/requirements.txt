@@ -1,0 +1,6 @@
+torch
+transformers==4.46.0
+pillow
+opencv-python
+numpy
+textdistance
