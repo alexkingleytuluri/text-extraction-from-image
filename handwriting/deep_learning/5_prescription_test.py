@@ -13,7 +13,7 @@ MODEL_PATH = os.path.join(
 
 IMAGE_PATH = os.path.join(
     BASE_DIR,
-    "word_img2.jpg"
+    "word_img.jpeg"
 )
 
 

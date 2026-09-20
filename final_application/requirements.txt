@@ -1,0 +1,15 @@
+streamlit
+numpy
+opencv-python
+scikit-image
+scikit-learn
+joblib
+torch
+transformers==4.46.0
+pillow
+textdistance
+google-genai
+python-dotenv
+pytesseract
+PyMuPDF
+mistralai

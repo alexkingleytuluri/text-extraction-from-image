@@ -27,7 +27,9 @@ HOG_ORIENTATIONS = 9
 HOG_PIXELS_PER_CELL = (4, 4)
 HOG_CELLS_PER_BLOCK = (2, 2)
 
-TEST_FOLDER = "test_clean"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DATA_FOLDER = os.path.join(BASE_DIR, "data_clean")
+TEST_FOLDER = os.path.join(BASE_DIR, "test_clean")
 
 
 # ============================================================
@@ -36,7 +38,7 @@ TEST_FOLDER = "test_clean"
 
 print("\nLoading training data...")
 
-X_train, y_train = load_dataset("data_clean")
+X_train, y_train = load_dataset(DATA_FOLDER)
 
 y_train = np.array([
     str(label)
