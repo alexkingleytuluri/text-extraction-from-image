@@ -51,3 +51,13 @@ Error Analysis
 ## Repository Status
 
 The Traditional Handwriting OCR pipeline has been finalized with its preprocessing, HOG feature extraction, SVM training, prediction, evaluation, and error-analysis components.
+
+## Final Evaluation
+
+The final Traditional OCR model was evaluated on 62 independent handwritten character samples.
+
+- Correct predictions: 40 / 62
+- Overall accuracy: 64.52%
+- Digits: 3 / 10 (30.00%)
+- Uppercase: 24 / 26 (92.31%)
+- Lowercase: 13 / 26 (50.00%)
