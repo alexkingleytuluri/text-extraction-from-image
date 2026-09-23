@@ -61,3 +61,7 @@ The final Traditional OCR model was evaluated on 62 independent handwritten char
 - Digits: 3 / 10 (30.00%)
 - Uppercase: 24 / 26 (92.31%)
 - Lowercase: 13 / 26 (50.00%)
+
+## Development Status
+
+The Traditional OCR stage is complete and integrated as the character-recognition component of the final OCR application.
