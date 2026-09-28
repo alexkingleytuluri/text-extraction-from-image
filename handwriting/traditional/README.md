@@ -65,3 +65,31 @@ The final Traditional OCR model was evaluated on 62 independent handwritten char
 ## Development Status
 
 The Traditional OCR stage is complete and integrated as the character-recognition component of the final OCR application.
+
+## Experimentation
+
+The project investigated threshold variations, HOG configurations, data augmentation settings, SVM hyperparameters, feature fusion, shape features, center-of-mass alignment, aspect-ratio analysis, class balancing, quality analysis, prototype approaches, PCA, hierarchical approaches, margin correction, pairwise specialists, and class weighting.
+
+The final configuration was selected after comparing these approaches against the independent external test set.
+
+## Important Limitation
+
+This is a single-character recognition model, not a complete handwriting document OCR engine.
+
+The SVM receives one normalized character image and predicts one of the 62 character classes.
+
+Whole-document handwriting recognition requires additional stages such as line detection, word segmentation, character segmentation, recognition, and text reconstruction.
+
+The final application therefore labels this component as Traditional ML - Character Recognition.
+
+## Final Status
+
+- Dataset preparation: Completed
+- Preprocessing: Completed
+- HOG feature extraction: Completed
+- Data augmentation: Completed
+- SVM training: Completed
+- External evaluation: Completed
+- Error analysis: Completed
+- Traditional OCR stage: Completed
+- Integration into final application: Completed
