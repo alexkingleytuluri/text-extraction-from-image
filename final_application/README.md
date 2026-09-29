@@ -1,4 +1,3 @@
-
 # Final OCR Application
 
 This directory contains the integrated Streamlit application for the OCR project.
@@ -17,11 +16,11 @@ The application provides a single interface for testing traditional machine lear
 
 The application accepts:
 
-- JPG
-- JPEG
-- PNG
-- WEBP
-- PDF
+* JPG
+* JPEG
+* PNG
+* WEBP
+* PDF
 
 PDF support is available for Printed Document OCR, Gemini AI, and Mistral OCR.
 
@@ -29,22 +28,22 @@ Traditional ML character recognition and the local Deep Learning handwriting pip
 
 ## Application Features
 
-- File upload through the Streamlit interface
-- Image preview before processing
-- PDF detection and handling
-- OCR output displayed in the interface
-- Downloadable text output
-- Error and warning handling
-- Optional dictionary correction for the Deep Learning OCR mode
+* File upload through the Streamlit interface
+* Image preview before processing
+* PDF detection and handling
+* OCR output displayed in the interface
+* Downloadable text output
+* Error and warning handling
+* Optional dictionary correction for the Deep Learning OCR mode
 
 ## Application Structure
 
-- app.py - Streamlit user interface and application routing
-- services/traditional_ocr.py - Traditional ML character recognition
-- services/printed_ocr.py - Printed image and PDF OCR
-- services/deep_learning_ocr.py - TrOCR handwriting recognition
-- services/gemini_ocr.py - Gemini multimodal OCR
-- services/mistral_ocr.py - Mistral document OCR
+* app.py - Streamlit user interface and application routing
+* services/traditional\_ocr.py - Traditional ML character recognition
+* services/printed\_ocr.py - Printed image and PDF OCR
+* services/deep\_learning\_ocr.py - TrOCR handwriting recognition
+* services/gemini\_ocr.py - Gemini multimodal OCR
+* services/mistral\_ocr.py - Mistral document OCR
 
 ## Requirements
 
@@ -63,3 +62,25 @@ Large trained model files are stored locally and excluded from Git, including th
 ## Status
 
 The integrated OCR application is complete and has been tested across the available OCR modes and supported input types.
+
+\## Final Test Files
+
+
+
+The `final\_tests/` directory contains the test inputs used to verify the integrated application.
+
+
+
+\- `1\_Traditional\_ML/` — single-character test for Traditional ML character recognition
+
+\- `2\_Printed\_OCR/` — printed image and PDF tests
+
+\- `3\_Deep\_Learning/` — handwritten text test for the fine-tuned TrOCR pipeline
+
+\- `4\_Gemini\_AI/` — handwritten prescription test for Gemini OCR
+
+\- `5\_Mistral\_OCR/` — handwritten prescription test for Mistral OCR
+
+
+
+These files are demonstration inputs used for final application testing.
