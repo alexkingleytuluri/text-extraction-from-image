@@ -342,3 +342,10 @@ st.caption(
     "Traditional ML • Printed OCR • "
     "Deep Learning • Gemini • Mistral"
 )
+
+st.markdown(
+    "<div style='text-align: right; color: #888; font-size: 13px;'>"
+    "Developed by Alex Kingley"
+    "</div>",
+    unsafe_allow_html=True
+)
