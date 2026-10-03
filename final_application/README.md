@@ -10,7 +10,7 @@ The application provides a single interface for testing traditional machine lear
 2. Printed Document OCR
 3. Deep Learning - Handwriting OCR
 4. Gemini AI
-5. Mistral OCR
+5. Mistral Vision
 
 ## Supported Input Formats
 
@@ -22,7 +22,8 @@ The application accepts:
 * WEBP
 * PDF
 
-PDF support is available for Printed Document OCR, Gemini AI, and Mistral OCR.
+PDF support is available for Printed Document OCR and Gemini AI.
+Mistral Vision currently supports image OCR.
 
 Traditional ML character recognition and the local Deep Learning handwriting pipeline are intended for image inputs.
 
@@ -79,7 +80,7 @@ The `final\_tests/` directory contains the test inputs used to verify the integr
 
 \- `4\_Gemini\_AI/` — handwritten prescription test for Gemini OCR
 
-\- `5\_Mistral\_OCR/` — handwritten prescription test for Mistral OCR
+\- `5\_Mistral\_OCR/` — handwritten prescription test for Mistral Vision
 
 
 

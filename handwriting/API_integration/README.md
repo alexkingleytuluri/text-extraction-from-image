@@ -8,8 +8,7 @@ This directory contains the external and local OCR implementations developed dur
 - Gemini API - multimodal handwriting OCR
 - OCR.space - cloud OCR implementation
 - Tesseract OCR - local OCR baseline
-- Mistral OCR - cloud document OCR
-
+- Mistral Vision - cloud vision-based OCR
 ## Gemini API
 
 The Gemini integration uses the Google Gen AI Python SDK to perform multimodal handwriting transcription from handwritten images and documents.
@@ -55,9 +54,9 @@ Configuration:
 
 Tesseract successfully recognized the available printed-text test image. When tested on the handwritten prescription image, it returned an empty transcription.
 
-## Mistral OCR
+## Mistral Vision
 
-Mistral OCR was added as a cloud document OCR option using the Mistral AI API.
+Mistral Vision was added as a cloud vision-based OCR option using the Mistral AI API.
 
 The implementation supports image and PDF inputs and loads the API key securely from .env.
 
@@ -68,7 +67,7 @@ Image and PDF integration tests were completed successfully.
 - Gemini API: Tested successfully
 - OCR.space: Secure implementation available; no formal accuracy evaluation documented
 - Tesseract OCR: Tested as local baseline
-- Mistral OCR: Image and PDF integration tested successfully
+- Mistral Vision: Image OCR tested successfully
 - API integration stage: Complete
 
 The completed OCR project integrates the API-based approaches with the final Streamlit application.

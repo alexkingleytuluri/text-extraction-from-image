@@ -164,9 +164,9 @@ The integration includes:
 
 Tesseract was tested as a local OCR baseline for printed or typed documents.
 
-### Mistral OCR
+### Mistral Vision
 
-Mistral OCR was integrated and tested for:
+Mistral Vision was integrated and tested for image OCR:
 
 - Image OCR
 - PDF OCR
@@ -206,8 +206,8 @@ final_application/
    - Multimodal OCR
    - Image and PDF support
 
-5. Mistral OCR
-   - Image and PDF OCR through the Mistral OCR API
+5. Mistral Vision
+   - Image OCR through the Mistral AI Vision API
 
 ### Supported Upload Formats
 
@@ -359,7 +359,7 @@ These local model files are required for the corresponding methods in the final 
 | Gemini | Multimodal API OCR | Completed |
 | OCR.space | Cloud OCR API | Completed |
 | Tesseract | Local printed OCR | Completed |
-| Mistral OCR | Image + PDF OCR API | Completed |
+| Mistral Vision | Image OCR through Mistral AI Vision | Completed |
 | Final Application | Streamlit multi-model OCR | Completed |
 
 Traditional OCR external evaluation:
