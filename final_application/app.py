@@ -50,8 +50,8 @@ ocr_methods = {
     "Gemini AI":
         "Gemini multimodal API for handwriting and document OCR.",
 
-    "Mistral OCR":
-        "Mistral OCR API for images and PDF documents."
+    "Mistral Vision":
+        "Mistral Vision AI for handwritten image OCR."
 }
 
 
@@ -266,10 +266,10 @@ if st.button(
             # Mistral
             # -------------------------------------------------
 
-            elif ocr_method == "Mistral OCR":
+            elif ocr_method == "Mistral Vision":
 
                 with st.spinner(
-                    "Sending document to Mistral OCR..."
+                    "Sending image to Mistral Vision..."
                 ):
 
                     result = mistral_ocr(

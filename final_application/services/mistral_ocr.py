@@ -54,7 +54,7 @@ def get_client():
 # ---------------------------------------------------------
 
 def extract_text_from_image(image_path):
-    """Extract text from an image using Mistral OCR."""
+    """Extract text from an image using Mistral Vision."""
 
     if not os.path.exists(image_path):
         raise FileNotFoundError(
@@ -98,34 +98,42 @@ def extract_text_from_image(image_path):
 
     client = get_client()
 
-    response = client.ocr.process(
-        model="mistral-ocr-latest",
-        document={
-            "type": "image_url",
-            "image_url": data_url
-        }
+    response = client.chat.complete(
+        model="ministral-3b-latest",
+        messages=[
+            {
+                "role": "user",
+                "content": [
+                    {
+                        "type": "text",
+                        "text": (
+                            "Extract all visible text from this image. "
+                            "Return only the transcribed text. "
+                            "Preserve line breaks, numbers, units, "
+                            "and punctuation as much as possible."
+                        )
+                    },
+                    {
+                        "type": "image_url",
+                        "image_url": data_url
+                    }
+                ]
+            }
+        ],
+        max_tokens=1000
     )
 
-    pages = []
-
-    for page in response.pages:
-
-        if page.markdown:
-            pages.append(
-                page.markdown
-            )
-
-    return "\n\n".join(
-        pages
+    return (
+        response.choices[0].message.content
+        or ""
     ).strip()
-
 
 # ---------------------------------------------------------
 # PDF OCR
 # ---------------------------------------------------------
 
 def extract_text_from_pdf(pdf_path):
-    """Extract text from a PDF using Mistral OCR."""
+    """Extract text from a PDF using the Mistral OCR endpoint."""
 
     if not os.path.exists(pdf_path):
         raise FileNotFoundError(
