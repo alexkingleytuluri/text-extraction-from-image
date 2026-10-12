@@ -112,3 +112,9 @@ Verified the five OCR application modes and prepared the project for final valid
 - Traditional ML recorded evaluation: 40/62 character predictions correct (64.52%).
 - Mistral Vision image OCR was tested successfully in the Streamlit application.
 - A standardized accuracy comparison across all five modes remains future work.
+
+### Future Improvements
+- Expand the handwritten character dataset to improve generalization.
+- Evaluate all OCR approaches on a common labeled test set.
+- Improve preprocessing and handle difficult handwriting.
+- Measure recognition accuracy and processing time.
