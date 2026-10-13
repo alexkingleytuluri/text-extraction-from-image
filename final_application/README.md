@@ -118,3 +118,8 @@ Verified the five OCR application modes and prepared the project for final valid
 - Evaluate all OCR approaches on a common labeled test set.
 - Improve preprocessing and handle difficult handwriting.
 - Measure recognition accuracy and processing time.
+
+### Input Format Notes
+- Image formats: JPG, JPEG, PNG, and WEBP.
+- PDF support depends on the selected OCR method.
+- Traditional ML and Deep Learning modes are intended for image inputs.
