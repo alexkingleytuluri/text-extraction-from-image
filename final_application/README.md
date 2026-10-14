@@ -123,3 +123,9 @@ Verified the five OCR application modes and prepared the project for final valid
 - Image formats: JPG, JPEG, PNG, and WEBP.
 - PDF support depends on the selected OCR method.
 - Traditional ML and Deep Learning modes are intended for image inputs.
+
+### Current Limitations
+- Traditional ML recognizes individual handwritten characters rather than complete documents.
+- Handwriting recognition accuracy depends on image quality and writing style.
+- PDF support varies by OCR method.
+- OCR outputs should be reviewed for transcription errors.
