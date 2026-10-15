@@ -129,3 +129,10 @@ Verified the five OCR application modes and prepared the project for final valid
 - Handwriting recognition accuracy depends on image quality and writing style.
 - PDF support varies by OCR method.
 - OCR outputs should be reviewed for transcription errors.
+
+### OCR Processing Workflow
+1. Select an OCR method from the Streamlit interface.
+2. Upload a supported image or PDF file.
+3. The application routes the file to the corresponding OCR service.
+4. The selected service extracts text using its configured model or engine.
+5. Review the extracted text and download it as a text file.
