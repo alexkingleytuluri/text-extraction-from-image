@@ -32,7 +32,10 @@ def main():
         print(f"FAIL: Cannot read ZIP: {exc}")
         return 1
 
-    normalized_names = {name.replace("\\", "/").lstrip("./") for name in names}
+    normalized_names = {
+    name.replace("\\", "/").removeprefix("./")
+    for name in names
+}
 
     missing = sorted(REQUIRED_FILES - normalized_names)
     if missing:
