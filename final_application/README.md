@@ -1,147 +1,108 @@
-# Final OCR Application
+# Multi-Model OCR System
 
-This directory contains the integrated Streamlit application for the OCR project.
+A Streamlit application that brings together five OCR approaches for recognizing handwritten characters, handwriting, and printed documents.
 
-The application provides a single interface for testing traditional machine learning, printed-document OCR, deep learning handwriting OCR, and cloud-based OCR approaches.
+## 1. OCR Modes
 
-## OCR Modes
+1. **Traditional ML — Character Recognition:** Classifies individual handwritten characters using a traditional machine-learning pipeline.
+2. **Printed Document OCR:** Extracts printed or typed text from images and PDFs using Tesseract OCR.
+3. **Deep Learning — Handwriting OCR:** Uses a fine-tuned TrOCR model for handwriting recognition.
+4. **Gemini AI:** Uses the Gemini API for multimodal OCR.
+5. **Mistral Vision:** Uses Mistral's vision model for image-based OCR.
 
-1. Traditional ML - Character Recognition
-2. Printed Document OCR
-3. Deep Learning - Handwriting OCR
-4. Gemini AI
-5. Mistral Vision
+## 2. Features
 
-## Supported Input Formats
+- Single Streamlit interface for all five approaches
+- Image preview and file upload
+- OCR results displayed in the application
+- Downloadable text output
+- Input validation and error handling
+- Optional dictionary correction in the deep-learning mode
 
-The application accepts:
+## 3. Supported Inputs
 
-* JPG
-* JPEG
-* PNG
-* WEBP
-* PDF
+Supported image formats: JPG, JPEG, PNG, and WEBP.
 
-PDF support is available for Printed Document OCR and Gemini AI.
-Mistral Vision currently supports image OCR.
+PDF support depends on the selected mode:
+- Printed Document OCR
+- Gemini AI
 
-Traditional ML character recognition and the local Deep Learning handwriting pipeline are intended for image inputs.
+Mistral Vision currently supports image OCR. Traditional ML character recognition and the local deep-learning pipeline are intended for image inputs.
 
-## Application Features
+## 4. Project Structure
 
-* File upload through the Streamlit interface
-* Image preview before processing
-* PDF detection and handling
-* OCR output displayed in the interface
-* Downloadable text output
-* Error and warning handling
-* Optional dictionary correction for the Deep Learning OCR mode
+- `app.py` — Streamlit user interface and routing
+- `services/traditional_ocr.py` — Traditional ML character recognition
+- `services/printed_ocr.py` — Printed-document OCR
+- `services/deep_learning_ocr.py` — TrOCR handwriting recognition
+- `services/gemini_ocr.py` — Gemini OCR integration
+- `services/mistral_ocr.py` — Mistral Vision integration
+- `final_tests/` — Sample inputs for testing the five modes
+- `requirements.txt` — Python dependencies
+- `../tools/verify_mentor_zip.py` — Mentor ZIP verification utility
+- `../tools/test_verify_mentor_zip.py` — Automated tests for the ZIP verifier
 
-## Application Structure
+## 5. Setup
 
-* app.py - Streamlit user interface and application routing
-* services/traditional\_ocr.py - Traditional ML character recognition
-* services/printed\_ocr.py - Printed image and PDF OCR
-* services/deep\_learning\_ocr.py - TrOCR handwriting recognition
-* services/gemini\_ocr.py - Gemini multimodal OCR
-* services/mistral\_ocr.py - Mistral document OCR
+Use a supported Python environment and run these commands from the repository root:
 
-## Requirements
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r .\final_application\requirements.txt
+python -m streamlit run .\final_application\app.py
+```
 
-Python dependencies are listed in requirements.txt.
+Install the Tesseract OCR executable separately and ensure it is accessible to the application.
 
-The local Tesseract OCR executable must also be installed for the Printed Document OCR service.
+Some modes also require locally available model files. Large trained models are not included in Git and may need to be obtained or trained separately.
 
-## Configuration and Model Files
+## 6. API Configuration
 
-API-based modes require the appropriate API credentials to be stored in the project .env file.
+Gemini and Mistral modes require API credentials. Configure the following variables in the `.env` file in the location expected by the service code:
 
-The .env file must never be committed to Git.
+```text
+GEMINI_API_KEY=your_gemini_api_key
+MISTRAL_API_KEY=your_mistral_api_key
+```
 
-Large trained model files are stored locally and excluded from Git, including the Traditional ML model and fine-tuned Deep Learning model.
+Replace the placeholders with your own credentials. Never commit real API keys or `.env` files to GitHub.
 
-## Status
+API access, usage limits, and billing depend on the provider and account.
 
-The integrated OCR application is complete and has been tested across the available OCR modes and supported input types.
+## 7. Testing and Evaluation
 
-\## Final Test Files
+Run the ZIP verification regression tests from the repository root:
 
+```powershell
+python -m unittest tools.test_verify_mentor_zip -v
+```
 
+Verify a mentor ZIP with:
 
-The `final\_tests/` directory contains the test inputs used to verify the integrated application.
+```powershell
+python .\tools\verify_mentor_zip.py .\OCR_Project_Mentor.zip
+```
 
+The verifier checks archive readability, required files, and configured patterns for sensitive or unwanted files.
 
+The Traditional ML evaluation recorded **40 correct predictions out of 62 test characters (64.52%)**. This result applies only to that evaluation set; it is not a standardized comparison of all five OCR modes.
 
-\- `1\_Traditional\_ML/` — single-character test for Traditional ML character recognition
+## 8. Limitations
 
-\- `2\_Printed\_OCR/` — printed image and PDF tests
+- Traditional ML recognizes individual characters rather than complete documents.
+- Recognition quality varies with image quality, handwriting style, and preprocessing.
+- PDF support varies by OCR mode.
+- API-based OCR requires connectivity and valid provider credentials.
+- OCR results should be reviewed for transcription errors.
+- A common labeled benchmark and standardized accuracy comparison across all five approaches remain future improvements.
 
-\- `3\_Deep\_Learning/` — handwritten text test for the fine-tuned TrOCR pipeline
+## 9. Demonstration Inputs
 
-\- `4\_Gemini\_AI/` — handwritten prescription test for Gemini OCR
+The `final_tests/` directory contains example inputs for the Traditional ML, Printed OCR, Deep Learning, Gemini AI, and Mistral Vision modes.
 
-\- `5\_Mistral\_OCR/` — handwritten prescription test for Mistral Vision
+Use these samples to demonstrate the application and inspect the output of each approach.
 
+## Project Status
 
-
-These files are demonstration inputs used for final application testing.
-
-### Development Note
-
-Final application testing and validation are in progress.
-
-### Development Note � Day 1
-Project documentation and final application testing are being maintained during the examination period.
-
-### Development Note � Day 2
-Continued maintaining the OCR project repository and development streak.
-
-### Development Note - Day 3
-Reviewed project documentation and maintained the OCR development log.
-
-### Development Note - Day 4
-Continued project maintenance and repository updates.
-
-### Development Note - Day 5
-Reviewed repository progress and continued maintaining the OCR project.
-
-### Development Note - Day 6
-Verified the five OCR application modes and prepared the project for final validation.
-
-### Final Testing Notes
-- Traditional ML recorded evaluation: 40/62 character predictions correct (64.52%).
-- Mistral Vision image OCR was tested successfully in the Streamlit application.
-- A standardized accuracy comparison across all five modes remains future work.
-
-### Future Improvements
-- Expand the handwritten character dataset to improve generalization.
-- Evaluate all OCR approaches on a common labeled test set.
-- Improve preprocessing and handle difficult handwriting.
-- Measure recognition accuracy and processing time.
-
-### Input Format Notes
-- Image formats: JPG, JPEG, PNG, and WEBP.
-- PDF support depends on the selected OCR method.
-- Traditional ML and Deep Learning modes are intended for image inputs.
-
-### Current Limitations
-- Traditional ML recognizes individual handwritten characters rather than complete documents.
-- Handwriting recognition accuracy depends on image quality and writing style.
-- PDF support varies by OCR method.
-- OCR outputs should be reviewed for transcription errors.
-
-### OCR Processing Workflow
-1. Select an OCR method from the Streamlit interface.
-2. Upload a supported image or PDF file.
-3. The application routes the file to the corresponding OCR service.
-4. The selected service extracts text using its configured model or engine.
-5. Review the extracted text and download it as a text file.
-
-### Development Note - October 16
-Reviewed the OCR project setup and maintained the repository before continuing final validation.
-
-### Development Note - October 17, 2026
-Completed a final review of the OCR application's five modes: Traditional ML Character Recognition, Printed Document OCR, Deep Learning Handwriting OCR, Gemini AI, and Mistral Vision. Confirmed the current testing status and documented known service limitations.
-
-### Development Note - October 18, 2026
-Verified the mentor ZIP archive, checked for sensitive files and unnecessary build artifacts, and confirmed that the essential application files extract successfully.
+The integrated Streamlit interface has been manually checked across its five modes in the current development environment. The ZIP verification utility has four passing automated regression tests. A fresh-machine installation and a standardized accuracy comparison across all OCR modes are separate validation tasks.
